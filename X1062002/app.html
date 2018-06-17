@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="https://s3.amazonaws.com/codiqa-cdn/codiqa.ext.css" rel="stylesheet">
+  <link href="https://s3.amazonaws.com/codiqa-cdn/mobile/1.4.2/jquery.mobile-1.4.2.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+  <script src="https://s3.amazonaws.com/codiqa-cdn/codiqa.ext.js"></script>
+
+  <script src="script.js"></script>
+
+</head>
+<body>
+<div data-role="page" data-control-title="Home" id="page1">
+    <div data-theme="b" data-role="header" data-position="fixed">
+        <h1 class="ui-title">
+            Restuarant pick
+        </h1>
+    </div>
+    <div role="main" class="ui-content">
+        <div style="" data-controltype="image">
+            <img style="width: 288px; height: 200px" src="https://www.img.in.th/images/47b4bcab26214cd9e4a18e4900f9994c.png">
+        </div>
+        <ul data-role="listview" data-divider-theme="b" data-inset="true">
+            <li data-role="list-divider" role="heading">
+                Foods
+            </li>
+            <li data-theme="a">
+                <a href="#page2" data-transition="slide">
+                    Asia
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page3" data-transition="slide">
+                    BBQ
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page6" data-transition="slide">
+                    Italian
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page7" data-transition="slide">
+                    Mexican
+                </a>
+            </li>
+            <li data-theme="a">
+                <a href="#page8" data-transition="slide">
+                    Vegeterian
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h4 class="ui-title">
+            Meridian 247
+        </h4>
+    </div>
+</div>
+<div data-role="page" data-control-title="Map" id="page4">
+    <div data-theme="a" data-role="header">
+        <h1 class="ui-title">
+            Restuarant pick
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div id="googlemapsjs1" class="google-map" style="width: 288px; height: 200px; margin-left: auto; margin-right: auto">
+        </div>
+        <script type="text/javascript">
+                window.CodiqaControls && window.CodiqaControls.register('googlemaps', 'googlemapsjs1', {
+            ready: function(control) {
+
+                control.options = {
+                    zoom: 15,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+                control.el = document.getElementById(control._id);
+                control.map = new google.maps.Map(control.el, control.options);
+
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({
+                    'address': 'National chin yi university'
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                        var marker = new google.maps.Marker({
+                            map: control.map,
+                            position: results[0].geometry.location
+                        });
+                        control.center = results[0].geometry.location;
+                        control.map.setCenter(control.center);
+                    }
+                });
+
+            }
+        });
+        </script>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="Asia" id="page2">
+    <div data-theme="b" data-role="header" data-position="fixed">
+        <h1 class="ui-title">
+            Asian Food
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-controltype="textblock">
+                    <p>
+                        <strong>
+                            <span style="font-size: medium;" data-mce-style="font-size: medium;">
+                                Sushi Heaven
+                            </span>
+                        </strong>
+                    </p>
+                    <p>
+                        5229 Morning Glory Rd
+                        <br>
+                        Hours: 11am - 10pm
+                        <br>
+                        Price: $$$
+                        <br>
+                        Web: sushiheaven.mer
+                    </p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div style="" data-controltype="image">
+                    <img style="width: 150px; height: 200px" src="https://www.img.live/images/2018/04/10/qwe.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page4" class="ui-btn ui-btn-b">
+                    Map
+                </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#:0826956862" class="ui-btn ui-btn-b">
+                    Call
+                </a>
+            </div>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                Forget grabbing your sushi from little boats sailing past your table on
+                a moat. We send our signature rolls your way in baskets floating through
+                the air, suspended by minature balloons and blimps. Go ahead, reach up
+                and grab the roll of your choice, as if you're plucking it out of heaven
+                itself.
+            </p>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="BBQ" id="page3">
+    <div data-theme="b" data-role="header">
+        <h1 class="ui-title">
+            BBQ
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-controltype="textblock">
+                    <p>
+                        Lake Wallaby BBQ
+                    </p>
+                    <p>
+                        975 Sunset Drive
+                        <br>
+                        Hours: 2pm - 11pm
+                        <br>
+                        Price: $$$$
+                        <br>
+                        Web: wallabybbq.mer
+                    </p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div style="" data-controltype="image">
+                    <img style="width: 150px; height: 200px" src="https://www.img.live/images/2018/04/10/BBQ.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page4" class="ui-btn ui-btn-b">
+                    Map
+                </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#:0826956862" class="ui-btn ui-btn-b">
+                    Call
+                </a>
+            </div>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                G'day, Mate! meridien boasts the only absolutely 100% authentic Aussie
+                barbie outside of Australia. As sure as Bob's your uncle, you won't find
+                croc, roo or emu on this menu. It's the usual fare for fire: prawns, chicken
+                or beef.
+            </p>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="Italian" id="page6">
+    <div data-theme="b" data-role="header">
+        <h1 class="ui-title">
+            Italian food
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-controltype="textblock">
+                    <p>
+                        <strong>
+                            <span style="font-size: medium;" data-mce-style="font-size: medium;">
+                                Il Piatto Di Pasta
+                            </span>
+                        </strong>
+                    </p>
+                    <p>
+                        9950 Villa Road
+                        <br>
+                        Hours: 10am - 9pm
+                        <br>
+                        Price: $$
+                        <br>
+                        Web: pastatime.mer
+                    </p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div style="" data-controltype="image">
+                    <img style="width: 150px; height: 200px" src="https://www.img.live/images/2018/04/10/Italian.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page4" class="ui-btn ui-btn-b">
+                    Map
+                </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#:0826956862" class="ui-btn ui-btn-b">
+                    Call
+                </a>
+            </div>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                You can't get them to eat their vegetables. You can't get them to eat
+                much. Chances are there is only one food your child will eat with pleasure
+                &nbsp;pasta! We're here for you.
+            </p>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="Mexican" id="page7">
+    <div data-theme="b" data-role="header">
+        <h1 class="ui-title">
+            Mexican food
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-controltype="textblock">
+                    <p>
+                        <strong>
+                            <span style="font-size: medium;" data-mce-style="font-size: medium;">
+                                Meridien Mexican Grill
+                            </span>
+                        </strong>
+                    </p>
+                    <p>
+                        2157 Misty Pine Ave.
+                        <br>
+                        Hours: 4pm - 2am
+                        <br>
+                        Price: $$
+                        <br>
+                        Web: mexicangrill.mer
+                    </p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div style="" data-controltype="image">
+                    <img style="width: 288px; height: 200px" src="https://www.img.live/images/2018/04/10/Mexician.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page4" class="ui-btn ui-btn-b">
+                    Map
+                </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#:0826956862" class="ui-btn ui-btn-b">
+                    Call
+                </a>
+            </div>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                Urban foodies know the Meridien Mexican Grill is always a pleasant surprise.
+                Right after the menus arrive and just before the chips and salsa, someone
+                at your table notices. There is no grill!
+            </p>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+<div data-role="page" data-control-title="Vegeterian" id="page8">
+    <div data-theme="b" data-role="header">
+        <h1 class="ui-title">
+            Vegeterian food
+        </h1>
+        <a href="#page1" class="ui-btn ui-btn-left">
+            Back
+        </a>
+    </div>
+    <div role="main" class="ui-content">
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <div data-controltype="textblock">
+                    <p>
+                        <span style="font-size: medium;">
+                            <strong>
+                                Uptown Sprouts
+                            </strong>
+                        </span>
+                    </p>
+                    <p>
+                        7547 W. 3rd St.
+                        <br>
+                        Hours: 10am - 9pm
+                        <br>
+                        Price: $
+                        <br>
+                        Web: uptownsprouts.mer
+                    </p>
+                </div>
+            </div>
+            <div class="ui-block-b">
+                <div style="" data-controltype="image">
+                    <img style="width: 150px; height: 200px" src="https://www.img.live/images/2018/04/10/Vegetarian.png">
+                </div>
+            </div>
+        </div>
+        <div class="ui-grid-a">
+            <div class="ui-block-a">
+                <a href="#page4" class="ui-btn ui-btn-b">
+                    Map
+                </a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#:0826956862" class="ui-btn ui-btn-b">
+                    Call
+                </a>
+            </div>
+        </div>
+        <div data-controltype="textblock">
+            <p>
+                Our owner and founder proudly says, "If it had a face, this ain't the
+                place." Yes, we are honored to serve you everything that never had a mother,
+                a thought, or an instinct. It's all vegan, all the time.
+            </p>
+        </div>
+    </div>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Meridian 247
+        </h3>
+    </div>
+</div>
+</body>
+</html>
